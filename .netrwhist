@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/zorro/.nvim'
+let g:netrw_dirhist_2='/home/zorro/temp/schild/lib/schild'
+let g:netrw_dirhist_3='/home/zorro/temp/sahib_docker/sahib'
+let g:netrw_dirhist_4='/home/zorro/.local/bin/bash-sensible'
+let g:netrw_dirhist_5='/home/zorro/Entwicklung/ruby/farhang-app'
+let g:netrw_dirhist_6='/home/zorro/.config'
+let g:netrw_dirhist_7='/home/zorro/.config/brasero'
