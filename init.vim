@@ -9,6 +9,7 @@ endfunction
 
 Plug 'airblade/vim-gitgutter'
 " syntax files
+Plug 'bendavis78/vim-polymer'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elzr/vim-json'
@@ -18,6 +19,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'tpope/vim-haml'
 Plug 'depuracao/vim-rdoc'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
 " toml files
 Plug 'maralla/vim-toml-enhance'
 Plug 'cespare/vim-toml'
@@ -26,7 +28,6 @@ Plug 'joukevandermaas/vim-ember-hbs'
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
-"
 
 " themes
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -42,6 +43,10 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neopairs.vim'
 " create new dirs
 Plug 'pbrisbin/vim-mkdir'
+
+" repariert JS selbständig ...
+Plug 'ruanyl/vim-fixmyjs'
+let g:fixmyjs_rc_filename = ['.eslintrc.js', '.eslintrc', '.eslintrc.json']
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -61,18 +66,22 @@ syntax enable
 filetype plugin indent on
 
 " syntastic
-Plug 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+ " Plug 'scrooloose/syntastic'
+ " set statusline+=%#warningmsg#
+ " set statusline+=%{SyntasticStatuslineFlag()}
+ " set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+ " let g:syntastic_always_populate_loc_list = 1
+ " let g:syntastic_check_on_open = 1
+ " let g:syntastic_check_on_wq = 0
 
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_messages = {'level': 'warnings'}
-let g:syntastic_auto_loc_list=2
+ " let g:syntastic_enable_signs=1
+ " let g:syntastic_quiet_messages = {'level': 'warnings'}
+ " let g:syntastic_auto_loc_list=2
+
+" Ersatz
+Plug 'neomake/neomake'
+let g:neomake_open_list = 2
 
 " fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -104,6 +113,9 @@ nnoremap <leader>w :FixWhitespace<CR>
 
 
 call plug#end()
+
+" neomake
+call neomake#configure#automake('rw', 1000)
 
 " weiteres
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
